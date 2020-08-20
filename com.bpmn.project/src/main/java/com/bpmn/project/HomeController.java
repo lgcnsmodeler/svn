@@ -36,4 +36,19 @@ public class HomeController {
 		return "home";
 	}
 	
+    @RequestMapping("/viewer.bgn")
+    public String sampleView() {
+        return "viewer";
+    }
+	
+    @RequestMapping("/modeler.bgn")
+    public String sampleModeler() {
+        return "modeler";
+    }
+	
+    
+    
 }
+
+
+
