@@ -41,12 +41,14 @@
         stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
       }
     </style>
+ 
   </head>
   <body>
     <div id="canvas"></div>
 
     <script>
-
+    
+	  var bpmnData = "${fileXml}";
       var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
 
       // viewer instance
@@ -54,7 +56,7 @@
         container: '#canvas'
       });
 
-
+	
       /**
        * Open diagram in our viewer instance.
        *
@@ -94,7 +96,7 @@
 
 
       // load external diagram file via AJAX and open it
-      $.get(diagramUrl, openDiagram, 'text');
+      $.get(diagramUrl, openDiagram(), 'text');
     </script>
     <!--
       Thanks for trying out our BPMN toolkit!

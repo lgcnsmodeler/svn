@@ -67,20 +67,54 @@
       /**
        * Save diagram contents and print them to the console.
        */
+       
+      var downloadLink = $('#save-button');
+      
       async function exportDiagram() {
 
         try {
 
           var result = await bpmnModeler.saveXML({ format: true });
-
-          alert('Diagram exported. Check the developer tools!');
-
-          console.log('DIAGRAM', result.xml);
+          //alert('Diagram exported. Check the developer tools!');
+          //console.log('DIAGRAM', result.xml);
+          download('diagram.bpmn', result.xml);
+          
         } catch (err) {
 
           console.error('could not save BPMN 2.0 diagram', err);
         }
       }
+      
+      //encoded
+//       function setEncoded(link, name, data) {
+//     	    var encodedData = encodeURIComponent(data);
+
+//     	    if (data) {
+//     	      link.addClass('active').attr({
+//     	        'href': 'data:application/bpmn20-xml;charset=UTF-8,' + encodedData,
+//     	        'download': name
+//     	      });
+//     	    } else {
+//     	      link.removeClass('active');
+//     	    }
+//     	  }
+      
+      
+      function download(filename, text) {
+    	    var pom = document.createElement('a');
+    	    pom.setAttribute('href', 'data:application/bpmn20-xml;charset=UTF-8,' + encodeURIComponent(text));
+    	    pom.setAttribute('download', filename);
+
+    	    if (document.createEvent) {
+    	        var event = document.createEvent('MouseEvents');
+    	        event.initEvent('click', true, true);
+    	        pom.dispatchEvent(event);
+    	    }
+    	    else {
+    	        pom.click();
+    	    }
+    	}
+
 
       /**
        * Open diagram in our modeler instance.
