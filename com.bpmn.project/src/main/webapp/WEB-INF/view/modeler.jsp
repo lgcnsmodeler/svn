@@ -50,7 +50,7 @@
   <body>
     <div id="canvas"></div>
 
-    <button id="save-button">print to console</button>
+    <button id="save-button">download</button>
 
     <script>
 

@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Start Modeler</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script>   
@@ -31,26 +32,42 @@
 
 </script>
 
+
+<style>
+	img { display: block; margin: 0px auto; }
+	
+	body 
+	{
+  		margin:100px;
+  		
+	}
+</style>
+
 </head>
 
 <% String path = request.getContextPath(); %>
 <body>
 
-<p> LG CNS Prcess Modeler index.jsp </p> 
+<p align="center" style="font-size:50px; color:red; font-weigh:bold"> LG CNS Process Modeler </p> 
         
      <div>
         <form action="/modeler.bgn" method="post">
-            <button onclick="submit">modeler!</button>
+            <button onclick="submit" class="btn btn-outline-primary" style="position:absolute; left:30px; bottom:30px;" >Create</button>
         </form>
     </div>
     
     <div>
         <form action="/viewer.bgn" method="post">
-        	<input type="file" name="file1"><br/>
-        	<input type="submit">
+        	<input type="file" name="file1" class="btn btn-outline-primary" style="position:absolute; left:300px; bottom:30px;"><br/>
+        	<input type="submit" class="btn btn-outline-primary" value="Open" style="position:absolute; left:120px; bottom:30px;">
           <!--    <button onclick="submit">Viewer!</button>  -->
         </form>
     </div>
+    
+   <img src="asset/image/bpmn-js.gif" alt="A screencast of the bpmn-js editing toolkit in action" 
+   		style="width: 1500px; border-width:1; border-color:black; border-style:dotted;" >
+    
+    
     
     <!--  <a href="#" onclick="performClick('theFile');">Open file dialog</a> -->
     <!--  <input type="file" id="theFile" accept=".bpmn" onchange="handleFiles(this.files)" /> -->
