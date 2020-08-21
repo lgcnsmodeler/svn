@@ -48,7 +48,7 @@
 <% String path = request.getContextPath(); %>
 <body>
 
-<p align="center" style="font-size:50px; color:red; font-weigh:bold"> LG CNS Process Modeler </p> 
+<p align="center" style="font-size:50px; color:red; font-weigh:bold; width: 100%x;  max-width: 100%; "> LG CNS Process Modeler </p> 
         
      <div>
         <form action="/modeler.bgn" method="post">
@@ -65,7 +65,7 @@
     </div>
     
    <img src="asset/image/bpmn-js.gif" alt="A screencast of the bpmn-js editing toolkit in action" 
-   		style="width: 1500px; border-width:1; border-color:black; border-style:dotted;" >
+   		style="width: 100%x;  max-width: 100%; border-width:1; border-color:black; border-style:dotted;" >
     
     
     
