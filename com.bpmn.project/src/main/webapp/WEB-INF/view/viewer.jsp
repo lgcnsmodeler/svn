@@ -97,6 +97,26 @@
 
       // load external diagram file via AJAX and open it
       $.get(diagramUrl, openDiagram(), 'text');
+      
+      
+      //read file Xml
+      function readTextFile(file)
+      {
+          var rawFile = new XMLHttpRequest();
+          rawFile.open("GET", file, false);
+          rawFile.onreadystatechange = function ()
+          {
+              if(rawFile.readyState === 4)
+              {
+                  if(rawFile.status === 200 || rawFile.status == 0)
+                  {
+                      var allText = rawFile.responseText;
+                      alert(allText);
+                  }
+              }
+          }
+          rawFile.send(null);
+      }
     </script>
     <!--
       Thanks for trying out our BPMN toolkit!

@@ -53,7 +53,9 @@
     <button id="save-button">download</button>
 
     <script>
-
+	  debugger;
+      var bpmnData = '${XmlData}';
+    		  
       var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
 
       // modeler instance
@@ -69,7 +71,7 @@
        */
        
       var downloadLink = $('#save-button');
-      
+
       async function exportDiagram() {
 
         try {
@@ -137,13 +139,13 @@
           canvas.zoom('fit-viewport');
 
           // attach an overlay to a node
-          overlays.add('SCAN_OK', 'note', {
-            position: {
-              bottom: 0,
-              right: 0
-            },
-            html: '<div class="diagram-note">Mixed up the labels?</div>'
-          });
+//           overlays.add('SCAN_OK', 'note', {
+//             position: {
+//               bottom: 0,
+//               right: 0
+//             },
+//             html: '<div class="diagram-note">Mixed up the labels?</div>'
+//           });
 
           // add marker
           canvas.addMarker('SCAN_OK', 'needs-discussion');
@@ -155,10 +157,38 @@
 
 
       // load external diagram file via AJAX and open it
-      $.get(diagramUrl, openDiagram, 'text');
+      
+      
+      if(bpmnData != null && bpmnData != ""){
+          $.get(diagramUrl, openDiagram(bpmnData), 'text');
+      }else{
+          $.get(diagramUrl, openDiagram, 'text');
+      }
+      //$.get(diagramUrl, openDiagram, 'text');
 
       // wire save button
       $('#save-button').click(exportDiagram);
+      
+      
+      //read File Xml
+      function readTextFile(file)
+      {
+          var rawFile = new XMLHttpRequest();
+          rawFile.open("GET", file, false);
+          rawFile.onreadystatechange = function ()
+          {
+              if(rawFile.readyState === 4)
+              {
+                  if(rawFile.status === 200 || rawFile.status == 0)
+                  {
+                      var allText = rawFile.responseText;
+                      alert(allText);
+                  }
+              }
+          }
+          rawFile.send(null);
+      }
+      
     </script>
     <!--
       Thanks for trying out our BPMN toolkit!

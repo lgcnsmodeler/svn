@@ -41,6 +41,7 @@
   		margin:100px;
   		
 	}
+	
 </style>
 
 </head>
@@ -57,10 +58,9 @@
     </div>
     
     <div>
-        <form action="/viewer.bgn" method="post">
-        	<input type="file" name="file1" class="btn btn-outline-primary" style="position:absolute; left:300px; bottom:30px;"><br/>
+        <form action="/modeler.bgn" method="post">
+        	<input type="file" name="file1" class="btn btn-outline-primary" onchange="this.form.submit()" style="position:absolute; left:300px; bottom:30px;"><br/>       	
         	<input type="submit" class="btn btn-outline-primary" value="Open" style="position:absolute; left:120px; bottom:30px;">
-          <!--    <button onclick="submit">Viewer!</button>  -->
         </form>
     </div>
     
@@ -91,6 +91,7 @@
 </body>
 
 <script>
+
 
 //File Data Access
 // var inputElement = document.getElementById("theFile");
